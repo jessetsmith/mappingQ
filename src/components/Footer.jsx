@@ -7,11 +7,19 @@ function Footer() {
       <div className="footer-main">
         <div className="footer-content">
           <div className="footer-logo-section">
-            <img 
-              src={getAssetPath('UAMA-Logo-Primary.svg')} 
-              alt="University of Arizona Museum of Art" 
-              className="footer-logo"
-            />
+            <a 
+              href="https://artmuseum.arizona.edu/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-logo-link"
+              aria-label="Visit University of Arizona Museum of Art"
+            >
+              <img 
+                src={getAssetPath('UAMA-Logo-Primary.svg')} 
+                alt="University of Arizona Museum of Art" 
+                className="footer-logo"
+              />
+            </a>
           </div>
           
           <div className="footer-info-section">
