@@ -52,7 +52,7 @@ function GalleryDetail() {
   return (
     <>
       <div className="page-container gallery-detail-container">
-        <div className="page-content">
+        <div className="page-content gallery-detail-content-wrapper">
           <button className="back-button" onClick={() => navigate('/')}>
             ← Back to Archive
           </button>
