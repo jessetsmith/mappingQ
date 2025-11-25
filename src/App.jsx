@@ -15,7 +15,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/mappingQ">
       <div className="app">
         <Navigation />
         <main className="main-content">
