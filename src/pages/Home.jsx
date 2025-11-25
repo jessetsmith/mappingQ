@@ -56,7 +56,7 @@ function Home() {
             <div className="hero-image-wrapper">
               <img 
                 ref={heroImageRef}
-                src={getAssetPath('MappingQ-Assets/VS_public-safety.jpg')} 
+                src={getAssetPath('MappingQ-Assets/Vanessa S/VS_public-safety.jpg')} 
                 alt="The Public is not Safe by Vanessa S., 2020, mixed media on paper" 
                 className="hero-image"
               />
