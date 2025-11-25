@@ -1,9 +1,13 @@
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import { artworksData } from '../utils/artworksData'
 import './GalleryDetail.css'
 
 function ArtworksDetail() {
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
 
   // Get unique artists with their Instagram links and artwork counts
   const artistInstagramMap = {
@@ -37,22 +41,22 @@ function ArtworksDetail() {
     <div className="page-container gallery-detail-container">
       <div className="page-content">
         <button className="back-button" onClick={() => navigate('/artworks')}>
-          ← Back to Artworks
+          {t.artworks.backToArtworks}
         </button>
         
-        <h1 className="gallery-detail-title">Mapping Q: 2020 Artworks</h1>
+        <h1 className="gallery-detail-title">Mapping Q: 2020 {t.artworks.artworks}</h1>
         
         <div className="gallery-description">
           <p>
-            Visual art pieces created by participants exploring themes of identity, community, and resilience. 
-            These works reflect the issues and experiences impacting LGBTQ+ youth, as well as the incredible 
-            resiliency and creative imagination each artist holds. Their artwork responds to topics such as 
-            queer futurism, intersectionality, radical visibility, and more.
+            {language === 'en' 
+              ? 'Visual art pieces created by participants exploring themes of identity, community, and resilience. These works reflect the issues and experiences impacting LGBTQ+ youth, as well as the incredible resiliency and creative imagination each artist holds. Their artwork responds to topics such as queer futurism, intersectionality, radical visibility, and more.'
+              : 'Piezas de arte visual creadas por participantes que exploran temas de identidad, comunidad y resiliencia. Estas obras reflejan los problemas y experiencias que impactan a los jóvenes LGBTQ+, así como la increíble resiliencia e imaginación creativa que cada artista posee. Su arte responde a temas como el futurismo queer, la interseccionalidad, la visibilidad radical y más.'
+            }
           </p>
         </div>
 
         <div className="artists-section">
-          <h2 className="thumbnails-heading">Artists</h2>
+          <h2 className="thumbnails-heading">{language === 'en' ? 'Artists' : 'Artistas'}</h2>
           <div className="artists-grid">
             {artists.map((artist) => (
               <div
@@ -78,7 +82,7 @@ function ArtworksDetail() {
                 <div className="artist-card-info">
                   <h3 className="artist-card-name">{artist.name}</h3>
                   <p className="artist-card-count">
-                    {artist.artworks.length} {artist.artworks.length === 1 ? 'work' : 'works'}
+                    {artist.artworks.length} {artist.artworks.length === 1 ? t.gallery.work : t.gallery.works}
                   </p>
                   {artist.instagram && (
                     <a

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, Suspense } from 'react'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
 import { PerspectiveCamera } from '@react-three/drei'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import * as THREE from 'three'
 import './GalleryModal.css'
 
@@ -225,6 +227,9 @@ function FrameScene({ image, isActive, onImageClick }) {
 }
 
 function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious, showDescription = false }) {
+  const { language } = useLanguage()
+  const t = translations[language]
+  
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -263,7 +268,7 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
             <div className="image-detail-column image-detail-info-column">
               <div className="image-detail-info-box">
                 {image.title && <h3 className="image-detail-title">{image.title}</h3>}
-                {image.artist && <p className="image-detail-artist">by {image.artist}</p>}
+                {image.artist && <p className="image-detail-artist">{t.artworks.by} {image.artist}</p>}
                 {image.medium && <p className="image-detail-medium">{image.medium}</p>}
                 {image.description && (
                   <div className="image-detail-description">
@@ -284,6 +289,8 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
 }
 
 function GalleryModal({ gallery, onClose }) {
+  const { language } = useLanguage()
+  const t = translations[language]
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
@@ -382,7 +389,7 @@ function GalleryModal({ gallery, onClose }) {
         <div className="gallery-modal-header">
           <h2 className="gallery-modal-title">{gallery.name}</h2>
           <p className="gallery-modal-subtitle">
-            {currentIndex + 1} of {validImages.length}
+            {currentIndex + 1} {t.gallery.of} {validImages.length}
           </p>
           {currentImage && (
             <div className="gallery-modal-artwork-info">
@@ -390,7 +397,7 @@ function GalleryModal({ gallery, onClose }) {
                 <h3 className="gallery-modal-artwork-title">{currentImage.title}</h3>
               )}
               {currentImage.artist && (
-                <p className="gallery-modal-artwork-artist">by {currentImage.artist}</p>
+                <p className="gallery-modal-artwork-artist">{t.artworks.by} {currentImage.artist}</p>
               )}
               {currentImage.medium && (
                 <p className="gallery-modal-artwork-medium">{currentImage.medium}</p>
@@ -422,7 +429,7 @@ function GalleryModal({ gallery, onClose }) {
 
         <div className="gallery-modal-controls">
           <div className="gallery-control-instructions">
-            <p>Use arrow buttons or keyboard arrows to navigate</p>
+            <p>{t.gallery.useArrows}</p>
           </div>
           <div className="gallery-control-buttons">
             <button 

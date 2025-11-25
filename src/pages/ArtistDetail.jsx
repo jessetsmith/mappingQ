@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import { artworksData, artistMetadata } from '../utils/artworksData'
 import './GalleryDetail.css'
 import '../components/GalleryModal.css'
@@ -28,6 +30,8 @@ function EnlargedImageView({ image, onClose }) {
 
 // ImageDetailView component extracted from GalleryModal
 function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious, showDescription = true }) {
+  const { language } = useLanguage()
+  const t = translations[language]
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 })
   const [isPortrait, setIsPortrait] = useState(false)
   const [showEnlarged, setShowEnlarged] = useState(false)
@@ -107,7 +111,7 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
                       <h3 className="image-detail-title">{image.title}</h3>
                     )}
                     {image.artist && (
-                      <p className="image-detail-artist">by {image.artist}</p>
+                      <p className="image-detail-artist">{t.artworks.by} {image.artist}</p>
                     )}
                     {image.medium && (
                       <p className="image-detail-medium">{image.medium}</p>
@@ -178,6 +182,8 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
 function ArtistDetail() {
   const { artistSlug } = useParams()
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
   const [artistArtworks, setArtistArtworks] = useState([])
   const [artistName, setArtistName] = useState('')
   const [artistInfo, setArtistInfo] = useState(null)
@@ -260,7 +266,7 @@ function ArtistDetail() {
       <div className="page-container gallery-detail-container">
         <div className="page-content">
           <button className="back-button" onClick={() => navigate('/artworks/detail')}>
-            ← Back to Artists
+            {t.artworks.backToArtists}
           </button>
           
           <div className="artist-header">
@@ -296,7 +302,7 @@ function ArtistDetail() {
 
           <div className="gallery-thumbnails-section">
             <h2 className="thumbnails-heading">
-              {artistArtworks.length} {artistArtworks.length === 1 ? 'Work' : 'Works'}
+              {artistArtworks.length} {artistArtworks.length === 1 ? t.gallery.work : t.gallery.works}
             </h2>
             <div className="gallery-thumbnails-grid">
               {artistArtworks.map((artwork, index) => (

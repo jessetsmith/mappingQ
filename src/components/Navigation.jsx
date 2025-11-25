@@ -1,9 +1,13 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import { getAssetPath } from '../utils/assetPath'
 import './Navigation.css'
 
 function Navigation() {
   const location = useLocation()
+  const { language, toggleLanguage } = useLanguage()
+  const t = translations[language]
 
   const isActive = (path) => location.pathname === path
 
@@ -23,38 +27,48 @@ function Navigation() {
             to="/about" 
             className={`nav-link ${isActive('/about') ? 'active' : ''}`}
           >
-            About Mapping Q
+            {t.nav.about}
           </Link>
           <Link 
             to="/history" 
             className={`nav-link ${isActive('/history') ? 'active' : ''}`}
           >
-            History
+            {t.nav.history}
           </Link>
           <Link 
             to="/participate" 
             className={`nav-link ${isActive('/participate') ? 'active' : ''}`}
           >
-            Participate
+            {t.nav.participate}
           </Link>
           <Link 
             to="/learn-more" 
             className={`nav-link ${isActive('/learn-more') ? 'active' : ''}`}
           >
-            Learn More
+            {t.nav.learnMore}
           </Link>
           <Link 
             to="/support" 
             className={`nav-link ${isActive('/support') ? 'active' : ''}`}
           >
-            Support
+            {t.nav.support}
           </Link>
         </div>
 
         <div className="language-toggle">
-          <button className="lang-btn">English</button>
+          <button 
+            className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+            onClick={toggleLanguage}
+          >
+            English
+          </button>
           <span className="lang-separator">|</span>
-          <button className="lang-btn">Español</button>
+          <button 
+            className={`lang-btn ${language === 'es' ? 'active' : ''}`}
+            onClick={toggleLanguage}
+          >
+            Español
+          </button>
         </div>
       </div>
     </nav>

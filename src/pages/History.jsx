@@ -45,10 +45,10 @@ function History() {
               <h3>Photovoice</h3>
               <p>Photographic documentation of experiences and perspectives through the lens of LGBTQ+ youth.</p>
             </div>
-            <div className="project-category">
+            <Link to="/scanned-zines" className="project-category project-category-link">
               <h3>Scanned Zines</h3>
               <p>Self-published zines featuring personal narratives, poetry, and artistic expressions.</p>
-            </div>
+            </Link>
           </div>
         </section>
 

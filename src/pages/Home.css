@@ -154,6 +154,205 @@
   margin: 0 auto;
 }
 
+.archive-links {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+  padding: 0 var(--spacing-lg);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.archive-link {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  background: var(--color-bg-light);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--color-red),
+    var(--color-orange),
+    var(--color-yellow),
+    var(--color-green),
+    var(--color-light-blue),
+    var(--color-dark-blue),
+    var(--color-purple)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.archive-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-dark-blue);
+  text-decoration: none;
+}
+
+.archive-link:hover::before {
+  opacity: 1;
+}
+
+.archive-link-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  position: relative;
+}
+
+.archive-link-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.archive-link:hover .archive-link-image img {
+  transform: scale(1.05);
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  color: var(--color-text-light);
+}
+
+.archive-link-info {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  position: relative;
+  z-index: 2;
+}
+
+.archive-link-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.archive-link:hover .archive-link-title {
+  color: var(--color-light-blue);
+}
+
+.archive-link-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .archive-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .archive-link {
+    max-width: 100%;
+  }
+}
+
+.scanned-zines-card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.scanned-zines-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--color-red),
+    var(--color-orange),
+    var(--color-yellow),
+    var(--color-green),
+    var(--color-light-blue),
+    var(--color-dark-blue),
+    var(--color-purple)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.scanned-zines-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-dark-blue);
+}
+
+.scanned-zines-card:hover::before {
+  opacity: 1;
+}
+
+.scanned-zines-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.scanned-zines-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+  margin: 0 0 var(--spacing-sm) 0;
+  transition: color 0.3s ease;
+}
+
+.scanned-zines-card:hover .scanned-zines-card-title {
+  color: var(--color-light-blue);
+}
+
+.scanned-zines-card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;

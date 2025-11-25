@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import GalleryModal from '../components/GalleryModal'
 import { initializeGalleries } from '../utils/galleryData'
 import './GalleryDetail.css'
@@ -7,6 +9,8 @@ import './GalleryDetail.css'
 function GalleryDetail() {
   const { galleryId } = useParams()
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
   const [gallery, setGallery] = useState(null)
   const [selectedGallery, setSelectedGallery] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -42,8 +46,8 @@ function GalleryDetail() {
     return (
       <div className="page-container">
         <div className="page-content">
-          <p>Gallery not found</p>
-          <button onClick={() => navigate('/')}>Return to Home</button>
+          <p>{t.common.notFound}</p>
+          <button onClick={() => navigate('/')}>{t.common.returnHome}</button>
         </div>
       </div>
     )
@@ -54,7 +58,7 @@ function GalleryDetail() {
       <div className="page-container gallery-detail-container">
         <div className="page-content gallery-detail-content-wrapper">
           <button className="back-button" onClick={() => navigate('/')}>
-            ← Back to Archive
+            {t.gallery.backToArchive}
           </button>
           
           <h1 className="gallery-detail-title">{gallery.name}</h1>
@@ -67,7 +71,7 @@ function GalleryDetail() {
 
           {gallery.instagramLinks && gallery.instagramLinks.length > 0 && (
             <div className="gallery-instagram-links">
-              <h3>Follow the Artists</h3>
+              <h3>{t.gallery.followArtists}</h3>
               <div className="instagram-links-list">
                 {gallery.instagramLinks.map((link, index) => (
                   <a
@@ -91,7 +95,7 @@ function GalleryDetail() {
 
           <div className="gallery-thumbnails-section">
             <h2 className="thumbnails-heading">
-              {gallery.images.length} {gallery.images.length === 1 ? 'Work' : 'Works'}
+              {gallery.images.length} {gallery.images.length === 1 ? t.gallery.work : t.gallery.works}
             </h2>
             <div className="gallery-thumbnails-grid">
               {gallery.images.map((image, index) => (

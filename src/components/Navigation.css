@@ -144,6 +144,16 @@
   border-radius: 4px;
   position: relative;
   overflow: hidden;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  font-weight: 600;
+  color: var(--color-dark-blue);
 }
 
 .lang-btn::before {
@@ -161,9 +171,14 @@
 }
 
 .lang-btn:hover {
-  color: white;
+  opacity: 1;
+  color: var(--color-dark-blue);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(7, 59, 76, 0.2);
+}
+
+.lang-btn.active:hover {
+  color: var(--color-dark-blue);
 }
 
 .lang-btn:hover::before {

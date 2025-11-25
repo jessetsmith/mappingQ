@@ -1,17 +1,32 @@
 import { useEffect, useState, useRef } from 'react'
-import GalleryGrid from '../components/GalleryGrid'
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import { initializeGalleries } from '../utils/galleryData'
+import { getArtworksGallery } from '../utils/artworksData'
 import { getAssetPath } from '../utils/assetPath'
 import './Home.css'
 
 function Home() {
-  const [galleries, setGalleries] = useState([])
+  const { language } = useLanguage()
+  const t = translations[language]
+  const [scannedZinesImage, setScannedZinesImage] = useState(null)
+  const [artworksImage, setArtworksImage] = useState(null)
   const heroImageRef = useRef(null)
   const heroSectionRef = useRef(null)
 
   useEffect(() => {
+    // Get first image from scanned zines galleries
     const loadedGalleries = initializeGalleries()
-    setGalleries(loadedGalleries)
+    if (loadedGalleries.length > 0 && loadedGalleries[0].images.length > 0) {
+      setScannedZinesImage(loadedGalleries[0].images[0].src)
+    }
+    
+    // Get first image from artworks gallery
+    const artworksGallery = getArtworksGallery()
+    if (artworksGallery.images.length > 0) {
+      setArtworksImage(artworksGallery.images[0].src)
+    }
   }, [])
 
   useEffect(() => {
@@ -63,22 +78,22 @@ function Home() {
             </div>
           </div>
           <div className="hero-text-container">
-            <h1 className="hero-title">
+            {/* <h1 className="hero-title">
               <span className="title-mapping">MAPPING</span>
               <span className="title-q">Q</span>
-            </h1>
+            </h1> */}
             <div className="hero-text">
               <p>
-                <strong>Mapping Q: 2020</strong> is an online exhibition featuring the work of eleven LGBTQ+ youth who reside in Arizona. These works reflect the issues and experiences impacting LGBTQ+ youth, as well as the incredible resiliency and creative imagination each artist holds. Their artwork responds to topics such as queer futurism, intersectionality, radical visibility, and more. Through this virtual exhibition we aim to build community and celebrate the stories and experiences of LGBTQ+ youth.
+                <strong>{t.home.heroTitle}</strong> {t.home.heroText1}
               </p>
               <p>
-                Mapping Q is an annual art program, serving LGBTQ+ youth, created in collaboration with the University of Arizona Museum of Art and the Southern Arizona AIDS Foundation (SAAF). Since 2014, the program has worked to reduce stigma regarding queer and trans identities, queer and trans bodies, and youth mental health. This past year, COVID-19 has dramatically impacted many youth, limiting their ability to escape abusive or unsupportive home life, seek support from friends and peer groups, or access other social networks and supports. Mapping Q responded to this crisis by expanding our partnership to include One-n-Ten, Phoenix's LGBTQ youth center, allowing us to serve youth residing anywhere in Arizona. In a series of nine weekly virtual workshops, participants explored topics of art-making, self-care and harm reduction.
+                {t.home.heroText2}
               </p>
               <p>
-                Mapping Q is made possible by support from the LGBT&S Alliance Fund held at the Community Foundation of Southern Arizona. This program is also made possible through support from the UAMA's Stanley Glickman Outreach Endowment.
+                {t.home.heroText3}
               </p>
               <p className="hero-image-credit">
-                <em>Image credit: Vanessa S., <strong>The Public is not Safe</strong>, 2020, mixed media on paper</em>
+                <em>{t.home.heroImageCredit} <strong>{t.home.heroImageCreditTitle}</strong>, {t.home.heroImageCreditYear}</em>
               </p>
             </div>
           </div>
@@ -87,12 +102,56 @@ function Home() {
 
       <section className="galleries-section">
         <div className="section-header">
-          <h2 className="section-title">Explore the Archive</h2>
+          <h2 className="section-title">{t.home.exploreArchive}</h2>
           <p className="section-description">
-            Click on any gallery to enter a 3D virtual space and explore the artworks
+            {t.home.archiveDescription}
           </p>
         </div>
-        <GalleryGrid galleries={galleries} />
+        
+        <div className="archive-links">
+          <Link to="/scanned-zines" className="archive-link">
+            <div className="archive-link-image">
+              {scannedZinesImage ? (
+                <img
+                  src={scannedZinesImage}
+                  alt={t.scannedZines.title}
+                  onError={(e) => {
+                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999"%3EImage%3C/text%3E%3C/svg%3E'
+                  }}
+                />
+              ) : (
+                <div className="gallery-placeholder">
+                  <span>No images</span>
+                </div>
+              )}
+            </div>
+            <div className="archive-link-info">
+              <h3 className="archive-link-title">{t.scannedZines.title}</h3>
+              <p className="archive-link-description">{t.scannedZines.description}</p>
+            </div>
+          </Link>
+          <Link to="/artworks/detail" className="archive-link">
+            <div className="archive-link-image">
+              {artworksImage ? (
+                <img
+                  src={artworksImage}
+                  alt={t.home.artworks2020}
+                  onError={(e) => {
+                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23999"%3EImage%3C/text%3E%3C/svg%3E'
+                  }}
+                />
+              ) : (
+                <div className="gallery-placeholder">
+                  <span>No images</span>
+                </div>
+              )}
+            </div>
+            <div className="archive-link-info">
+              <h3 className="archive-link-title">{t.home.artworks2020}</h3>
+              <p className="archive-link-description">{t.home.artworks2020Description}</p>
+            </div>
+          </Link>
+        </div>
       </section>
     </div>
   )
