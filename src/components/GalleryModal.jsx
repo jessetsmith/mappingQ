@@ -224,7 +224,7 @@ function FrameScene({ image, isActive, onImageClick }) {
   )
 }
 
-function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious }) {
+function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious, showDescription = false }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -241,8 +241,9 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
 
   return (
     <div className="image-detail-overlay" onClick={onClose}>
-      <div className="image-detail-content" onClick={(e) => e.stopPropagation()}>
+      <div className={`image-detail-wrapper ${showDescription ? 'with-description' : 'centered-only'}`} onClick={(e) => e.stopPropagation()}>
         <button className="image-detail-close" onClick={onClose}>×</button>
+        
         {hasPrevious && (
           <button className="image-detail-nav image-detail-prev" onClick={onPrevious}>
             ‹
@@ -253,26 +254,30 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
             ›
           </button>
         )}
-        <img src={image.src} alt={image.alt || image.title} className="image-detail-img" />
-        <div className="image-detail-info">
-          {image.title && (
-            <h3 className="image-detail-title">{image.title}</h3>
-          )}
-          {image.artist && (
-            <p className="image-detail-artist">by {image.artist}</p>
-          )}
-          {image.medium && (
-            <p className="image-detail-medium">{image.medium}</p>
-          )}
-          {image.description && (
-            <div className="image-detail-description">
-              <p>{image.description}</p>
+
+        {showDescription ? (
+          <div className="image-detail-content">
+            <div className="image-detail-column image-detail-image-column">
+              <img src={image.src} alt={image.alt || image.title} className="image-detail-img" />
             </div>
-          )}
-          {!image.title && !image.artist && !image.medium && !image.description && (
-            <p>{image.alt}</p>
-          )}
-        </div>
+            <div className="image-detail-column image-detail-info-column">
+              <div className="image-detail-info-box">
+                {image.title && <h3 className="image-detail-title">{image.title}</h3>}
+                {image.artist && <p className="image-detail-artist">by {image.artist}</p>}
+                {image.medium && <p className="image-detail-medium">{image.medium}</p>}
+                {image.description && (
+                  <div className="image-detail-description">
+                    <p>{image.description}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="image-detail-content-centered">
+            <img src={image.src} alt={image.alt || image.title} className="image-detail-img" />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -448,6 +453,7 @@ function GalleryModal({ gallery, onClose }) {
           onPrevious={handlePreviousImage}
           hasNext={currentIndex < validImages.length - 1}
           hasPrevious={currentIndex > 0}
+          showDescription={false}
         />
       )}
     </div>

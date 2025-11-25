@@ -27,7 +27,7 @@ function EnlargedImageView({ image, onClose }) {
 }
 
 // ImageDetailView component extracted from GalleryModal
-function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious }) {
+function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevious, showDescription = true }) {
   const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 })
   const [isPortrait, setIsPortrait] = useState(false)
   const [showEnlarged, setShowEnlarged] = useState(false)
@@ -75,60 +75,96 @@ function ImageDetailView({ image, onClose, onNext, onPrevious, hasNext, hasPrevi
     setShowEnlarged(true)
   }
 
+  // Determine if we should show description based on prop or if description exists
+  const shouldShowDescription = showDescription && (image.title || image.artist || image.medium || image.description)
+
   return (
     <>
       <div className="image-detail-overlay" onClick={onClose}>
-        <div className="image-detail-wrapper" onClick={(e) => e.stopPropagation()}>
+        <div className={`image-detail-wrapper ${shouldShowDescription ? 'with-description' : 'centered-only'}`} onClick={(e) => e.stopPropagation()}>
           <button className="image-detail-close" onClick={onClose}>×</button>
-          
-          {hasPrevious && (
-            <button className="image-detail-nav image-detail-prev" onClick={onPrevious}>
-              ‹
-            </button>
-          )}
-          {hasNext && (
-            <button className="image-detail-nav image-detail-next" onClick={onNext}>
-              ›
-            </button>
-          )}
 
-          <div className="image-detail-content">
-            <div className="image-detail-column image-detail-image-column">
-              <div className="image-detail-img-wrapper" onClick={handleImageClick}>
-                <img 
-                  ref={imgRef}
-                  src={image.src} 
-                  alt={image.alt || image.title} 
-                  className={`image-detail-img ${isPortrait ? 'portrait' : ''}`}
-                />
-                <div className="image-detail-click-hint">
-                  Click to enlarge
+          {shouldShowDescription ? (
+            <>
+              <div className="image-detail-content">
+                <div className="image-detail-column image-detail-image-column">
+                  <div className="image-detail-img-wrapper" onClick={handleImageClick}>
+                    <img 
+                      ref={imgRef}
+                      src={image.src} 
+                      alt={image.alt || image.title} 
+                      className={`image-detail-img ${isPortrait ? 'portrait' : ''}`}
+                    />
+                    <div className="image-detail-click-hint">
+                      Click to enlarge
+                    </div>
+                  </div>
+                </div>
+
+                <div className="image-detail-column image-detail-info-column">
+                  <div className="image-detail-info-box">
+                    {image.title && (
+                      <h3 className="image-detail-title">{image.title}</h3>
+                    )}
+                    {image.artist && (
+                      <p className="image-detail-artist">by {image.artist}</p>
+                    )}
+                    {image.medium && (
+                      <p className="image-detail-medium">{image.medium}</p>
+                    )}
+                    {image.description && (
+                      <div className="image-detail-description">
+                        <p>{image.description}</p>
+                      </div>
+                    )}
+                    {!image.title && !image.artist && !image.medium && !image.description && (
+                      <p>{image.alt}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="image-detail-column image-detail-info-column">
-              <div className="image-detail-info-box">
-                {image.title && (
-                  <h3 className="image-detail-title">{image.title}</h3>
+              <div className="image-detail-nav-bottom">
+                {hasPrevious && (
+                  <button className="image-detail-nav-btn image-detail-nav-prev" onClick={onPrevious}>
+                    ‹ Previous
+                  </button>
                 )}
-                {image.artist && (
-                  <p className="image-detail-artist">by {image.artist}</p>
-                )}
-                {image.medium && (
-                  <p className="image-detail-medium">{image.medium}</p>
-                )}
-                {image.description && (
-                  <div className="image-detail-description">
-                    <p>{image.description}</p>
-                  </div>
-                )}
-                {!image.title && !image.artist && !image.medium && !image.description && (
-                  <p>{image.alt}</p>
+                {hasNext && (
+                  <button className="image-detail-nav-btn image-detail-nav-next" onClick={onNext}>
+                    Next ›
+                  </button>
                 )}
               </div>
-            </div>
-          </div>
+            </>
+          ) : (
+            <>
+              <div className="image-detail-content-centered">
+                <div className="image-detail-img-wrapper" onClick={handleImageClick}>
+                  <img 
+                    ref={imgRef}
+                    src={image.src} 
+                    alt={image.alt || image.title} 
+                    className={`image-detail-img ${isPortrait ? 'portrait' : ''}`}
+                  />
+                  <div className="image-detail-click-hint">
+                    Click to enlarge
+                  </div>
+                </div>
+              </div>
+              <div className="image-detail-nav-bottom">
+                {hasPrevious && (
+                  <button className="image-detail-nav-btn image-detail-nav-prev" onClick={onPrevious}>
+                    ‹ Previous
+                  </button>
+                )}
+                {hasNext && (
+                  <button className="image-detail-nav-btn image-detail-nav-next" onClick={onNext}>
+                    Next ›
+                  </button>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -313,6 +349,7 @@ function ArtistDetail() {
           onPrevious={handlePreviousImage}
           hasNext={selectedImageIndex < artistArtworks.length - 1}
           hasPrevious={selectedImageIndex > 0}
+          showDescription={true}
         />
       )}
     </>

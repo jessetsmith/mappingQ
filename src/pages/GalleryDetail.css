@@ -1,5 +1,9 @@
 .gallery-detail-container {
   padding: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .back-button {
