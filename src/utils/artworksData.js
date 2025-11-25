@@ -1,5 +1,6 @@
 // Artworks data from Mapping Q: 2020 exhibition
 // Images are now stored locally in public/MappingQ-Assets
+import { getAssetPath } from './assetPath'
 
 export const artworksData = [
   // Artemis W.
@@ -9,8 +10,8 @@ export const artworksData = [
     artist: 'Artemis W.',
     medium: 'Pencil, paper, colored pencils, and pen',
     description: 'I made this piece after learning about the concept of "Queer Futurism" through Mapping Q. The representation for Queer folx in general is lacking, especially when we talk of futuristic settings. The fact is, those within the LGBTQ+ community are more likely to commit suicide than Cis and Straight people. We deserve a future too, every single person deserves the right to a future. Don\'t lose hope, better days will come. Stay strong, if not for you or your loved ones, for me.',
-    imageUrl: '/MappingQ-Assets/Artemis W/Queer-Futurism-Artemis.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Artemis W/Queer-Futurism-Artemis.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Artemis W/Queer-Futurism-Artemis.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Artemis W/Queer-Futurism-Artemis.jpg'),
   },
   {
     id: 'artemis-light-dark',
@@ -18,8 +19,8 @@ export const artworksData = [
     artist: 'Artemis W.',
     medium: 'Pencil, paper, colored pencils, markers, white GellyRoll pen',
     description: 'This pandemic has taught us many things. Quarantine specifically made me realize just how lucky I was to be able to see my friends whenever I wanted prior to the start of the pandemic. We had to figure out how to be together while apart. Animal crossing was my escape during quarantine, and playing with friends kept me safe and sane.',
-    imageUrl: '/MappingQ-Assets/Artemis W/Light-in-the-Dark_Artemis.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Artemis W/Light-in-the-Dark_Artemis.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Artemis W/Light-in-the-Dark_Artemis.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Artemis W/Light-in-the-Dark_Artemis.jpg'),
   },
   {
     id: 'artemis-ways-see-me',
@@ -27,8 +28,8 @@ export const artworksData = [
     artist: 'Artemis W.',
     medium: 'Pencil, paper, colored pencils, pen, fine liners',
     description: 'I\'ve always felt that people notice the parts of me that I struggle to accept and love, more than they notice the parts of me I want them to. My chest is big and usually the first thing people see and make assumptions on my gender because of. Being someone who is Non-binary with chest dysphoria but can\'t bind is very difficult. I\'ve always struggled with accepting and loving my body fat and stretch marks, especially with all the fatphobia in the world, especially in the medical field. Being non-binary has its own unique difficulties that are hard to navigate, and being a more feminine person is often difficult when the idea of androgyny is often forced upon those who do not fit within the binary. I want to be loved for me. I want to be able to express myself how I want. I wish to exist to please me and not others.',
-    imageUrl: '/MappingQ-Assets/Artemis W/The-Ways-in-which-they-see-me_Artemis.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Artemis W/The-Ways-in-which-they-see-me_Artemis.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Artemis W/The-Ways-in-which-they-see-me_Artemis.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Artemis W/The-Ways-in-which-they-see-me_Artemis.jpg'),
   },
   // Sewn by Lauren D. Pineda, UA Theatre Production Major
   {
@@ -37,8 +38,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Collaborative textile work featuring portraits of Mapping Q participants.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/full.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/full.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/full.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/full.jpg'),
   },
   {
     id: 'lauren-artemis',
@@ -46,8 +47,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of Artemis W. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/Artemis.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/Artemis.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Artemis.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Artemis.jpg'),
   },
   {
     id: 'lauren-austen',
@@ -55,8 +56,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of Austen D. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/Austen.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/Austen.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Austen.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Austen.jpg'),
   },
   {
     id: 'lauren-mercedez',
@@ -64,8 +65,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of Mercedez M. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/Mercedez.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/Mercedez.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Mercedez.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Mercedez.jpg'),
   },
   {
     id: 'lauren-ruthann',
@@ -73,8 +74,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of RuthAnn G. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/RuthAnn.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/RuthAnn.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/RuthAnn.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/RuthAnn.jpg'),
   },
   {
     id: 'lauren-sam',
@@ -82,8 +83,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of Sam B. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/Sam.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/Sam.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Sam.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Sam.jpg'),
   },
   {
     id: 'lauren-savannah',
@@ -91,8 +92,8 @@ export const artworksData = [
     artist: 'Lauren D. Pineda',
     medium: 'Textile',
     description: 'Portrait of Savannah N. sewn by Lauren D. Pineda, UA Theatre Production Major.',
-    imageUrl: '/MappingQ-Assets/Lauren D Pineda/Savannah.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Lauren D Pineda/Savannah.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Savannah.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Lauren D Pineda/Savannah.jpg'),
   },
   // Austen D.
   {
@@ -101,8 +102,8 @@ export const artworksData = [
     artist: 'Austen D.',
     medium: 'Paint on cloth sewn on to paper',
     description: 'Music and the punk scene is something that is very important to me personally, and these patches are representative of that subculture, as well as myself.',
-    imageUrl: '/MappingQ-Assets/Austen D/Patches_Austen.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Austen D/Patches_Austen.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Austen D/Patches_Austen.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Austen D/Patches_Austen.jpg'),
   },
   {
     id: 'austen-molotov',
@@ -110,8 +111,8 @@ export const artworksData = [
     artist: 'Austen D.',
     medium: 'Pen and paint on paper',
     description: 'Inspired by Mapping Q\'s prompt of rebellion art, my second piece is about the danger of the anti-sjw mindset and how it can harm even an ally or someone in the lgbt+ community\'s perception of our community.',
-    imageUrl: '/MappingQ-Assets/Austen D/Molotov-from-the-snowflakes_Austen.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Austen D/Molotov-from-the-snowflakes_Austen.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Austen D/Molotov-from-the-snowflakes_Austen.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Austen D/Molotov-from-the-snowflakes_Austen.jpg'),
   },
   {
     id: 'austen-queer-fuck-you',
@@ -119,8 +120,8 @@ export const artworksData = [
     artist: 'Austen D.',
     medium: 'Pen on paper',
     description: 'My third piece is lyric art of "Queer as in Fuck You" by Dog Park Dissidents. It\'s a great song with an important message about rainbow capitalism.',
-    imageUrl: '/MappingQ-Assets/Austen D/Queer-as-in-Fuck-You_Austen.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Austen D/Queer-as-in-Fuck-You_Austen.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Austen D/Queer-as-in-Fuck-You_Austen.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Austen D/Queer-as-in-Fuck-You_Austen.jpg'),
   },
   // Elliott C.
   {
@@ -129,8 +130,8 @@ export const artworksData = [
     artist: 'Elliott C.',
     medium: 'Unknown',
     description: 'Artwork by Elliott C. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Elliott C/Flying-to-Abraxas-Elliott-Coleman.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Elliott C/Flying-to-Abraxas-Elliott-Coleman.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Elliott C/Flying-to-Abraxas-Elliott-Coleman.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Elliott C/Flying-to-Abraxas-Elliott-Coleman.jpg'),
   },
   // Findley A.
   {
@@ -139,8 +140,8 @@ export const artworksData = [
     artist: 'Findley A.',
     medium: 'Unknown',
     description: 'Artwork by Findley A. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Findley A/A-crow_Findley.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Findley A/A-crow_Findley.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Findley A/A-crow_Findley.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Findley A/A-crow_Findley.jpg'),
   },
   {
     id: 'findley-true-form',
@@ -148,8 +149,8 @@ export const artworksData = [
     artist: 'Findley A.',
     medium: 'Unknown',
     description: 'Artwork by Findley A. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Findley A/My-true-form_Findley-scaled.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Findley A/My-true-form_Findley-scaled.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Findley A/My-true-form_Findley-scaled.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Findley A/My-true-form_Findley-scaled.jpg'),
   },
   // Jay G.
   {
@@ -158,8 +159,8 @@ export const artworksData = [
     artist: 'Jay G.',
     medium: 'Unknown',
     description: 'Artwork by Jay G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Jay G/MQMirror-Jay-Green.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Jay G/MQMirror-Jay-Green.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Jay G/MQMirror-Jay-Green.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Jay G/MQMirror-Jay-Green.jpg'),
   },
   {
     id: 'jay-clouds',
@@ -167,8 +168,8 @@ export const artworksData = [
     artist: 'Jay G.',
     medium: 'Unknown',
     description: 'Artwork by Jay G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Jay G/MQClouds-Jay-Green.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Jay G/MQClouds-Jay-Green.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Jay G/MQClouds-Jay-Green.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Jay G/MQClouds-Jay-Green.jpg'),
   },
   {
     id: 'jay-testament',
@@ -176,8 +177,8 @@ export const artworksData = [
     artist: 'Jay G.',
     medium: 'Unknown',
     description: 'Artwork by Jay G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Jay G/MQTestament-Jay-Green.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Jay G/MQTestament-Jay-Green.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Jay G/MQTestament-Jay-Green.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Jay G/MQTestament-Jay-Green.jpg'),
   },
   // Liam E.
   {
@@ -186,8 +187,8 @@ export const artworksData = [
     artist: 'Liam E.',
     medium: 'Unknown',
     description: 'Artwork by Liam E. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Liam E/mushroom-Liam-He-they.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Liam E/mushroom-Liam-He-they.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Liam E/mushroom-Liam-He-they.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Liam E/mushroom-Liam-He-they.jpg'),
   },
   // Mercedez M.
   {
@@ -196,8 +197,8 @@ export const artworksData = [
     artist: 'Mercedez M.',
     medium: 'Unknown',
     description: 'Artwork by Mercedez M. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Mercedez M/Inherited-Fire_Mercedez.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Mercedez M/Inherited-Fire_Mercedez.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Mercedez M/Inherited-Fire_Mercedez.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Mercedez M/Inherited-Fire_Mercedez.jpg'),
   },
   // RuthAnn G.
   {
@@ -206,8 +207,8 @@ export const artworksData = [
     artist: 'RuthAnn G.',
     medium: 'Unknown',
     description: 'Artwork by RuthAnn G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/RuthAnn G/Amatonormativity_RuthAnn.jpg',
-    thumbnailUrl: '/MappingQ-Assets/RuthAnn G/Amatonormativity_RuthAnn.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Amatonormativity_RuthAnn.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Amatonormativity_RuthAnn.jpg'),
   },
   {
     id: 'ruthann-nothing-without-us',
@@ -215,8 +216,8 @@ export const artworksData = [
     artist: 'RuthAnn G.',
     medium: 'Unknown',
     description: 'Artwork by RuthAnn G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/RuthAnn G/Nothing-Without-Us_RuthAnn.jpg',
-    thumbnailUrl: '/MappingQ-Assets/RuthAnn G/Nothing-Without-Us_RuthAnn.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Nothing-Without-Us_RuthAnn.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Nothing-Without-Us_RuthAnn.jpg'),
   },
   {
     id: 'ruthann-celestial-crip',
@@ -224,8 +225,8 @@ export const artworksData = [
     artist: 'RuthAnn G.',
     medium: 'Unknown',
     description: 'Artwork by RuthAnn G. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/RuthAnn G/Celestial-crip_RuthAnn.jpg',
-    thumbnailUrl: '/MappingQ-Assets/RuthAnn G/Celestial-crip_RuthAnn.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Celestial-crip_RuthAnn.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/RuthAnn G/Celestial-crip_RuthAnn.jpg'),
   },
   // Sam B.
   {
@@ -234,8 +235,8 @@ export const artworksData = [
     artist: 'Sam B.',
     medium: 'Unknown',
     description: 'Artwork by Sam B. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Sam B/Strength-Together_Sam.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Sam B/Strength-Together_Sam.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Sam B/Strength-Together_Sam.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Sam B/Strength-Together_Sam.jpg'),
   },
   {
     id: 'sam-no-longer-caged',
@@ -243,8 +244,8 @@ export const artworksData = [
     artist: 'Sam B.',
     medium: 'Unknown',
     description: 'Artwork by Sam B. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Sam B/No-longer-caged-Sam.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Sam B/No-longer-caged-Sam.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Sam B/No-longer-caged-Sam.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Sam B/No-longer-caged-Sam.jpg'),
   },
   {
     id: 'sam-outside-lines',
@@ -252,8 +253,8 @@ export const artworksData = [
     artist: 'Sam B.',
     medium: 'Unknown',
     description: 'Artwork by Sam B. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Sam B/Outside-the-lines-Sam.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Sam B/Outside-the-lines-Sam.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Sam B/Outside-the-lines-Sam.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Sam B/Outside-the-lines-Sam.jpg'),
   },
   // Savannah N.
   {
@@ -262,8 +263,8 @@ export const artworksData = [
     artist: 'Savannah N.',
     medium: 'Unknown',
     description: 'Artwork by Savannah N. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Savannah N/Perception-V-Reality-Savannah.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Savannah N/Perception-V-Reality-Savannah.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Savannah N/Perception-V-Reality-Savannah.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Savannah N/Perception-V-Reality-Savannah.jpg'),
   },
   {
     id: 'savannah-welcome-innsmouth',
@@ -271,8 +272,8 @@ export const artworksData = [
     artist: 'Savannah N.',
     medium: 'Unknown',
     description: 'Artwork by Savannah N. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Savannah N/Welcome-from-Innsmouth-Savannah.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Savannah N/Welcome-from-Innsmouth-Savannah.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Savannah N/Welcome-from-Innsmouth-Savannah.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Savannah N/Welcome-from-Innsmouth-Savannah.jpg'),
   },
   {
     id: 'savannah-wingardium-transphobia',
@@ -280,8 +281,8 @@ export const artworksData = [
     artist: 'Savannah N.',
     medium: 'Unknown',
     description: 'Artwork by Savannah N. from Mapping Q: 2020.',
-    imageUrl: '/MappingQ-Assets/Savannah N/Wingardium-Transphobia-Savannah.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Savannah N/Wingardium-Transphobia-Savannah.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Savannah N/Wingardium-Transphobia-Savannah.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Savannah N/Wingardium-Transphobia-Savannah.jpg'),
   },
   // Vanessa S.
   {
@@ -290,8 +291,8 @@ export const artworksData = [
     artist: 'Vanessa S.',
     medium: 'Watercolor and water-based marker',
     description: 'After learning about the art of complaining, I thought about their personal experiences with police and the concept of public safety. Scarcity of resources also inhibits the ability to feel safe. Many facets of their identity and those of their larger community have not ensured safety. Particularly, the artist has felt discarded and cannot relate to the word "public" as defined by legal and governmental systems in the so-called United States. This piece reclaims this word to name the several communities that are targeted disproportionately by police and other quasi-authorities of supposed safety.',
-    imageUrl: '/MappingQ-Assets/Vanessa S/VS_public-safety.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Vanessa S/VS_public-safety.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Vanessa S/VS_public-safety.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Vanessa S/VS_public-safety.jpg'),
   },
   {
     id: 'vanessa-community-vision',
@@ -299,8 +300,8 @@ export const artworksData = [
     artist: 'Vanessa S.',
     medium: 'Mixed media',
     description: 'This is an extension of a gratitude letter I made for a friend\'s birthday, inspired by Christine Wong Yap\'s gratitude letter project. I decided to blow up the artwork and make a collage. I have been thinking a lot about connections and community, as they are an integral part of mine. Some parts collage, some parts vision board, I mapped out what their connection represents for me as I continue to build foundational blocks for holding community and care for the many folks in my life. Part of building community is to continue imagining closeness and support. I made this collage out of magazines from the college where we met, symbolizing friendship, community, and fostering healthy connections.',
-    imageUrl: '/MappingQ-Assets/Vanessa S/IMG_3490-V-S.jpg',
-    thumbnailUrl: '/MappingQ-Assets/Vanessa S/IMG_3490-V-S.jpg'
+    imageUrl: getAssetPath('MappingQ-Assets/Vanessa S/IMG_3490-V-S.jpg'),
+    thumbnailUrl: getAssetPath('MappingQ-Assets/Vanessa S/IMG_3490-V-S.jpg'),
   }
 ]
 

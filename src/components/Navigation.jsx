@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { getAssetPath } from '../utils/assetPath'
 import './Navigation.css'
 
 function Navigation() {
@@ -11,7 +12,7 @@ function Navigation() {
       <div className="nav-container">
         <Link to="/" className="logo-link">
           <img 
-            src="/MappingQ-Logo.svg" 
+            src={getAssetPath('MappingQ-Logo.svg')} 
             alt="Mapping Q Logo" 
             className="logo-img"
           />

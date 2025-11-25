@@ -142,16 +142,15 @@ const folderImages = {
   ]
 }
 
+import { getAssetPath } from './assetPath'
+
 // Function to generate image paths based on folder structure
 export function getImagePaths(folderName) {
-  // Use public folder path for Vite
-  const basePath = `/MappingQ-Assets/${encodeURIComponent(folderName)}/`
-  
   // Get the specific images for this folder
   const imageNames = folderImages[folderName] || []
   
   return imageNames.map((name, index) => ({
-    src: basePath + encodeURIComponent(name),
+    src: getAssetPath(`MappingQ-Assets/${encodeURIComponent(folderName)}/${encodeURIComponent(name)}`),
     alt: `${folderName} - ${name.replace('.jpg', '').replace(/_/g, ' ')}`,
     id: `${folderName}-${index}-${name}`,
     name: name

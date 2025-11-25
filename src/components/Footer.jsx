@@ -1,3 +1,4 @@
+import { getAssetPath } from '../utils/assetPath'
 import './Footer.css'
 
 function Footer() {
@@ -7,7 +8,7 @@ function Footer() {
         <div className="footer-content">
           <div className="footer-logo-section">
             <img 
-              src="/UAMA-Logo-Primary.svg" 
+              src={getAssetPath('UAMA-Logo-Primary.svg')} 
               alt="University of Arizona Museum of Art" 
               className="footer-logo"
             />
