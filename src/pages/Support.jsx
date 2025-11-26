@@ -1,16 +1,20 @@
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import './Page.css'
 
 function Support() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1 className="page-title">Support</h1>
+        <h1 className="page-title">{t.support.title}</h1>
         
         <section className="page-section">
-          <h2 className="section-heading">Donate</h2>
+          <h2 className="section-heading">{t.support.donate}</h2>
           <p className="section-text">
-            Your support helps us continue providing art programs, workshops, and resources 
-            for LGBTQ+ youth in Arizona. Every contribution makes a difference.
+            {t.support.donateText}
           </p>
           <div className="donate-container">
             <a 
@@ -19,47 +23,45 @@ function Support() {
               rel="noopener noreferrer"
               className="donate-button"
             >
-              <span>Donate to UAMA</span>
+              <span>{t.support.donateToUAMA}</span>
             </a>
           </div>
         </section>
 
         <section className="page-section">
-          <h2 className="section-heading">Volunteer</h2>
+          <h2 className="section-heading">{t.support.volunteer}</h2>
           <p className="section-text">
-            We're always looking for dedicated volunteers to help with workshops, events, 
-            and program administration. If you're interested in getting involved, please 
-            reach out to our team.
+            {t.support.volunteerText}
           </p>
           <div className="contact-info">
-            <p><strong>University of Arizona Museum of Art</strong></p>
+            <p><strong>{language === 'en' ? 'University of Arizona Museum of Art' : 'Museo de Arte de la Universidad de Arizona'}</strong></p>
             <p>1031 N Olive Road, Tucson, AZ 85721-0002</p>
-            <p>Phone: 520-621-7567</p>
-            <p>Email: <a href="mailto:artmuseum@email.arizona.edu">artmuseum@email.arizona.edu</a></p>
+            <p>{language === 'en' ? 'Phone' : 'Teléfono'}: 520-621-7567</p>
+            <p>{language === 'en' ? 'Email' : 'Correo electrónico'}: <a href="mailto:artmuseum@email.arizona.edu">artmuseum@email.arizona.edu</a></p>
           </div>
         </section>
 
         <section className="page-section">
-          <h2 className="section-heading">Sustaining Partners</h2>
+          <h2 className="section-heading">{t.support.sustainingPartners}</h2>
           <p className="section-text">
-            Mapping Q is made possible through the generous support of our partners and funders.
+            {t.support.sustainingPartnersText}
           </p>
           <div className="partners-grid">
             <div className="partner-logo">
-              <p>LGBT&S Alliance Fund</p>
-              <p className="partner-subtitle">Community Foundation of Southern Arizona</p>
+              <p>{t.support.lgbtAllianceFund}</p>
+              <p className="partner-subtitle">{t.support.communityFoundation}</p>
             </div>
             <div className="partner-logo">
-              <p>UAMA Stanley Glickman</p>
-              <p className="partner-subtitle">Outreach Endowment</p>
+              <p>{t.support.uamaGlickman}</p>
+              <p className="partner-subtitle">{t.support.outreachEndowment}</p>
             </div>
             <div className="partner-logo">
-              <p>Southern Arizona AIDS Foundation</p>
-              <p className="partner-subtitle">(SAAF)</p>
+              <p>{t.support.saaf}</p>
+              <p className="partner-subtitle">{t.support.saafSubtitle}</p>
             </div>
             <div className="partner-logo">
-              <p>One-n-Ten</p>
-              <p className="partner-subtitle">Phoenix LGBTQ Youth Center</p>
+              <p>{t.support.oneNTen}</p>
+              <p className="partner-subtitle">{t.support.oneNTenSubtitle}</p>
             </div>
           </div>
         </section>

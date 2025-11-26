@@ -1,8 +1,12 @@
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import './GalleryGrid.css'
 
 function GalleryGrid({ galleries }) {
   const navigate = useNavigate()
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const handleGalleryClick = (gallery) => {
     navigate(`/gallery/${gallery.id}`)
@@ -28,14 +32,14 @@ function GalleryGrid({ galleries }) {
                 />
               ) : (
                 <div className="gallery-placeholder">
-                  <span>No images</span>
+                  <span>{language === 'en' ? 'No images' : 'Sin imágenes'}</span>
                 </div>
               )}
             </div>
             <div className="gallery-card-info">
               <h3 className="gallery-card-title">{gallery.name}</h3>
               <p className="gallery-card-count">
-                {gallery.images.length} {gallery.images.length === 1 ? 'work' : 'works'}
+                {gallery.images.length} {gallery.images.length === 1 ? t.gallery.work : t.gallery.works}
               </p>
             </div>
           </div>

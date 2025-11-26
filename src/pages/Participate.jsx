@@ -1,39 +1,41 @@
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 import './Page.css'
 
 function Participate() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1 className="page-title">Participate</h1>
+        <h1 className="page-title">{t.participate.title}</h1>
         
         <section className="page-section">
-          <h2 className="section-heading">Pop Up Gallery Activities</h2>
+          <h2 className="section-heading">{t.participate.popUpGallery}</h2>
           <p className="section-text">
-            Explore lesson plans and activities developed by Carissa's students. These resources 
-            are designed to help educators and community members engage with the themes and 
-            artistic practices featured in Mapping Q.
+            {t.participate.popUpGalleryText}
           </p>
           <div className="activity-cards">
             <div className="activity-card">
-              <h3>Art-Making Workshops</h3>
-              <p>Hands-on activities for creating art that explores identity and community.</p>
+              <h3>{t.participate.artMakingWorkshops}</h3>
+              <p>{t.participate.artMakingWorkshopsText}</p>
             </div>
             <div className="activity-card">
-              <h3>Self-Care Practices</h3>
-              <p>Resources for mental health and wellness through creative expression.</p>
+              <h3>{t.participate.selfCarePractices}</h3>
+              <p>{t.participate.selfCarePracticesText}</p>
             </div>
             <div className="activity-card">
-              <h3>Harm Reduction</h3>
-              <p>Educational materials on safety and support for LGBTQ+ youth.</p>
+              <h3>{t.participate.harmReduction}</h3>
+              <p>{t.participate.harmReductionText}</p>
             </div>
           </div>
         </section>
 
         <section className="page-section">
-          <h2 className="section-heading">Submit Your Work</h2>
+          <h2 className="section-heading">{t.participate.submitWork}</h2>
           <p className="section-text">
-            Are you an LGBTQ+ youth artist in Arizona? We'd love to see your work! Submit your 
-            artwork or responses to our prompts through the form below.
+            {t.participate.submitWorkText}
           </p>
           <div className="submit-form-container">
             <a 
@@ -42,15 +44,15 @@ function Participate() {
               rel="noopener noreferrer"
               className="submit-button"
             >
-              <span>Submit Your Artwork</span>
+              <span>{t.participate.submitArtwork}</span>
             </a>
           </div>
         </section>
 
         <section className="page-section">
-          <h2 className="section-heading">Stay Connected</h2>
+          <h2 className="section-heading">{t.participate.stayConnected}</h2>
           <p className="section-text">
-            Follow us on social media for updates, upcoming workshops, and new additions to the archive.
+            {t.participate.stayConnectedText}
           </p>
           <div className="social-links">
             <a 
